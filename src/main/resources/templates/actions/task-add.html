@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/task-add-and-update.css}">
+    <title>Add</title>
+</head>
+<body>
+<h1>Create a new task</h1>
+<form action="/home/add" method="post">
+    <div class="name">
+        <p>
+            <input type="text" name="name" placeholder="Name of the task" required>
+            What do you need to do?
+        </p>
+    </div>
+    <div class="deadline">
+        <p>
+            <input type="date" id="deadline" name="deadline" required>
+            Set a deadline
+        </p>
+    </div>
+    <div class="container">
+        <div class="priority">
+            <p>Set a priority of your task</p>
+            <div class="row">
+                <input type="radio" id="priority1" name="priority" value="1" required>
+                <label for="priority1">Important</label><br>
+            </div>
+            <div class="row">
+                <input type="radio" id="priority2" name="priority" value="2">
+                <label for="priority2">Usual</label><br>
+            </div>
+            <div class="row">
+                <input type="radio" id="priority3" name="priority" value="3">
+                <label for="priority3">Petty</label><br>
+            </div>
+        </div>
+        <div class="note">
+            <p>
+                Add a note to your task if nedeed<br>
+                <textarea name="note" placeholder="Add a note"></textarea>
+            </p>
+        </div>
+    </div>
+    <div class="button">
+        <button type="submit">Create a task</button>
+    </div>
+</form>
+</body>
+</html>

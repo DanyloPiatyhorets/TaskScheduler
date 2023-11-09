@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="#{home.title}"></title>
+        <link rel="stylesheet" th:href="@{/styles/home.css}">
+        <script th:src="@{/scripts/activePage.js}"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+
+            <div th:insert="~{blocks/side-bar :: side-bar}"></div>
+
+            <div class="tasks-container">
+                <form action="/home" method="get">
+                    <button type="submit" name="lang" value="en">English</button>
+                    <button type="submit" name="lang" value="uk">Українська</button>
+                </form> <!--видалити цю форму якщо що-->
+                <div th:if="${#lists.isEmpty(todayTasks)}">
+                    <h2 th:text="#{home.lists-are-empty-1}" th:></h2>
+                    <h2 th:text="#{home.lists-are-empty-2}" th:></h2>
+                </div>
+                <div th:if="${!#lists.isEmpty(todayTasks)}">
+                    <h2 th:text="#{home.today}"></h2>
+                    <div th:each="task : ${todayTasks}">
+                        <a th:href="'/home/' + ${task.getId()}">
+                            <div class="task-block">
+                                <h3 class="task-name" th:text="${task.getName()}"></h3>
+                                <p class="task-deadline" th:text="'Дедлайн: ' + ${task.getUkrainianFormattedDeadline()}"></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div th:if="${!#lists.isEmpty(laterTasks)}">
+                    <h2 th:text="#{home.later}"></h2>
+                    <div th:each="task : ${laterTasks}">
+                        <a th:href="'/home/' + ${task.getId()}">
+                            <div class="task-block">
+                                <h3 class="task-name" th:text="${task.getName()}"></h3>
+                                <p class="task-deadline" th:text="'Дедлайн: ' + ${task.getUkrainianFormattedDeadline()}"></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+:root{
+    --zero-color: #135292;
+    --first-color:#287dd2;
+    --second-color: #53a8b6;
+    --third-color: #79c2d0;
+    --fourth-color: #bbe4e9;
+    --fifth-color: #e3f2f5;
+    --sixth-color: #f5f8f9;
+
+    --pr-1-border-color:#f16821;
+    --pr-1-main-background-color: #f6c0af;
+    --pr-1-hover-background-color: #c79a8b;
+
+    --pr-2-border-color: #f3a333;
+    --pr-2-main-background-color: #f5c9a0;
+    --pr-2-hover-background-color: #bb9a7a;
+
+
+    --pr-3-border-color: #05885b;
+    --pr-3-main-background-color: #a0f1cd;
+    --pr-3-hover-background-color: #7ab99d;
+}
+html{
+    background-color: var(--fifth-color);
+    font-size: 24px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+
+}
+div.name, div.deadline, div.note{
+    margin-left: 1rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    margin-top: 0.6rem;
+}
+div.name p, div.deadline p{
+    margin-bottom: 0;
+    margin-top: 0.8rem;
+}
+form input[type="text"],
+form input[type="date"],
+form textarea {
+    margin: 0.5rem 0;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    width: 300px;
+    font-size: 16px;
+}
+form textarea {
+    width: 15rem;
+    height: 4.5rem;
+}
+
+form input[type="radio"],
+form label {
+    margin: 0.5rem 0;
+    font-size: 16px;
+}
+
+form button[type="submit"] {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--first-color);
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    border: var(--zero-color) solid 1px;
+}
+
+/* кнопки */
+.priority {
+    margin-left: 1rem;
+}
+
+.priority p {
+    font-size: 1rem;
+}
+
+.priority input[type="radio"] {
+    display: none;
+}
+
+.priority label {
+    margin-right: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.priority label:before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--first-color);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+.priority div.row {
+    margin-bottom: 0.8rem;
+}
+
+.priority input[type="radio"]:checked + label:before {
+    background-color: var(--first-color);
+}
+
+/* Задайте колір для кожної радіо-кнопки */
+#priority1:checked + label:before {
+    background-color: var(--pr-1-border-color);
+    border-color: var(--pr-1-border-color);
+}
+
+#priority2:checked + label:before {
+    background-color: var(--pr-2-border-color);
+    border-color: var(--pr-2-border-color);
+}
+
+#priority3:checked + label:before {
+    background-color: var(--pr-3-border-color);
+    border-color: var(--pr-3-border-color);
+}
+
+div.note p{
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+div.note p textarea{
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+div.button {
+    margin-bottom: 0.5rem;
+}
+.delete{
+    margin-bottom: 0.5rem;
+}

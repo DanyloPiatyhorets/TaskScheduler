@@ -1,0 +1,33 @@
+<div th:fragment = "side-bar">
+  <link rel="stylesheet" th:href="@{/styles/side-bar.css}">
+  <div class="sidebar">
+    <span>User</span><br><br>
+    <ul>
+      <li class="home" th:classappend="${activePage == 'home'} ? 'active'">
+        <a th:href="@{/home}">
+          Home
+        </a>
+      </li>
+      <li class="my-day" th:classappend="${activePage == 'my-day'} ? 'active'">
+        <a th:href="@{/my-day}">
+          My day
+        </a>
+      </li>
+      <li class="done" th:classappend="${activePage == 'done'} ? 'active'">
+        <a th:href="@{/done}">
+          Done
+        </a>
+      </li>
+      <li class="missed" th:classappend="${activePage == 'missed'} ? 'active'">
+        <a th:href="@{/missed}">
+          Missed
+        </a>
+      </li>
+      <li class="add">
+        <a th:href = "@{/home/add}" >
+          Add
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
