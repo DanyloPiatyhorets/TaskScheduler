@@ -18,6 +18,9 @@ public class Task {
     private int priority;
     private String note;
     private boolean done;
+    @ManyToOne
+    @JoinColumn(name = "UserID")
+    private User user;
 
     public Task(String name, LocalDate deadline, int priority, String note) {
         this.name = name;
