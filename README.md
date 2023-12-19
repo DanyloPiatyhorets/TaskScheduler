@@ -52,7 +52,7 @@ I utilized the following technologies to develop the application:
 - Java
 - The Spring Framework
 - Fronted technologies such as HTML, CSS, and JavaScript
-- mySGL database (powered by MAMP)
+- mySQL database (powered by MAMP)
 ## Further improvements
 Currently, I am focused on enhancing the security system of the project to deepen my understanding of Java and the Spring Framework. Future development plans include:
 
