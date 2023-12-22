@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hello from sign up
+<div th:if="${exists}">
+    <h2>Account with this email already exists<br>
+        Please choose a different email to sign up or this email to log in</h2>
+</div>
+<form action="/sign-up" method="post">
+    <input type="email" name="email" placeholder="email" required><br>
+    <input type="text" name="name" placeholder="name" required><br>
+    <input type="text" name="surname" placeholder="surname" required><br>
+    <input type="password" name="password" placeholder="password" required><br>
+    <input type="date" name="dateOfBirth" placeholder="date of birth" required><br>
+    <div class="button">
+        <button type="submit">Create an account</button>
+    </div>
+</form>
+already have an account?
+<a th:href="'/log-in'">
+    Log-in
+</a>
+</body>
+</html>
