@@ -26,6 +26,11 @@ public class LogInOutController {
     public String login(@RequestParam String email,
                         @RequestParam String password,
                         Model model) {
+        //TODO:
+        // 1. somehow authenticate a user given an email and a password
+        // 2. add something to a model to enable retrieving appropriate tasks in home method
+        // 3. redirect to home
+
         // TODO: I think here it should be an ultimate method for:
         //  1. auto-log-in when session is available (called from StartController probably or something with SpringSecurity)
         //  2. when a user signs up with a new account, retrieve the last record from a database and log in with these details

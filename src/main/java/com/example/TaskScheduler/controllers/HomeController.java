@@ -24,6 +24,9 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Model model) {
+        // TODO: change it here to get only particular tasks for a user
+        //(probably it is fair for all methods here, have a think)
+        // at least same for all controllers
         Iterable<Task> tasks = taskRepository.findAll();
         model.addAttribute("todayTasks", Tasks.todayTasks(tasks));
         model.addAttribute("laterTasks", Tasks.laterTasks(tasks));

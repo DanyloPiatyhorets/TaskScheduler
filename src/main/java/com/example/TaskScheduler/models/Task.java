@@ -21,6 +21,8 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "UserID")
     private User user;
+    // here in a database "userid" column appears.
+    // Each personal task can be retrieved from a database using this column userid
 
     public Task(String name, LocalDate deadline, int priority, String note) {
         this.name = name;
