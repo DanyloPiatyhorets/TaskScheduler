@@ -3,28 +3,31 @@ package com.example.TaskScheduler.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-// TODO: initial securityFilterChain which should be upgraded I guess
-// TODO: and are there any other fields or methods to be added here?
+    private CustomUserDelailsService customUserDelailsService;
+    @Autowired
+    public SecurityConfig(CustomUserDelailsService customUserDelailsService) {
+        this.customUserDelailsService = customUserDelailsService;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/TaskScheduler", "/login", "sign-up").permitAll()
+                        .requestMatchers("/TaskScheduler", "/login", "/sign-up").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/sign-up").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -36,14 +39,13 @@ public class SecurityConfig {
         return http.build();
     }
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration) throws Exception{
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
 

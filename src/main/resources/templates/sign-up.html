@@ -10,8 +10,8 @@ hello from sign up
     <h2>Account with this email already exists<br>
         Please choose a different email to sign up or this email to log in</h2>
 </div>
-<form action="/sign-up" method="post">
-    <input type="email" name="email" placeholder="email" required><br>
+<form th:action="@{/sign-up}" method="post">
+    <input type="email" name="username" placeholder="email" required><br>
     <input type="text" name="name" placeholder="name" required><br>
     <input type="text" name="surname" placeholder="surname" required><br>
     <input type="password" name="password" placeholder="password" required><br>
@@ -21,7 +21,7 @@ hello from sign up
     </div>
 </form>
 already have an account?
-<a th:href="'/log-in'">
+<a th:href="'/home'">
     Log-in
 </a>
 </body>
