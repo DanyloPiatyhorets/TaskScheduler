@@ -31,15 +31,10 @@ public class AuthenticationController {
 
     @GetMapping("/TaskScheduler")
     public String start(Model model) {
-        // TODO: Here the logic to check whether there's an available session
-        // and a user can be logged in automatically
-        // if so -> return home (logged in)
-        // else -> return start
         return "start";
     }
     @GetMapping("/sign-up")
     public String getSignup(Model model) {
-        // Might be some logic or switch to simple <a> in html
         return "sign-up";
     }
     @PostMapping("/sign-up")
@@ -56,9 +51,19 @@ public class AuthenticationController {
         User user = new User(username, name, surname,
                 passwordEncoder.encode(password), dateOfBirth);
         userRepository.save(user);
-        // TODO: here you need to pass the control to /login with username and password as parameters
-        // now it returns to home, change later
-        return "redirect:/TaskScheduler";
+
+//        UsernamePasswordAuthenticationToken authRequest =
+//                new UsernamePasswordAuthenticationToken(username, password);
+//        Authentication authentication = authenticationManager.authenticate(authRequest);
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//
+//        return "redirect:/home";
+//        I think this one should work when I add the right page to the login form chain
+        return login(username, password);
+    }
+    @GetMapping("/login")
+    public String getLogin(Model model) {
+        return "login";
     }
     @PostMapping("/login")
     public String login(@RequestParam String username,
