@@ -10,7 +10,6 @@
         <div class="grid-container">
 
             <div th:insert="~{blocks/side-bar :: side-bar}"></div>
-
             <div class="tasks-container">
                 <div th:if="${#lists.isEmpty(todayTasks)}">
                     <h2>No tasks for today<br>Add tasks to achieve your goals!</h2>

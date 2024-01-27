@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.Objects;
 
 @Entity
 public class Task {
@@ -12,24 +13,25 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+//    @ForeignKey
+//    I can manage the relation between the task and the user entity either strictly via database
+//    or strictly via spring
     private String name;
     private LocalDate deadline;
     private int priority;
     private String note;
     private boolean done;
-    @ManyToOne
-    @JoinColumn(name = "UserID")
-    private User user;
-    // here in a database "userid" column appears.
-    // Each personal task can be retrieved from a database using this column userid
 
-    public Task(String name, LocalDate deadline, int priority, String note) {
+    @ManyToOne
+    private User user;
+
+    public Task(String name, LocalDate deadline, int priority, String note, User user) {
         this.name = name;
         this.deadline = deadline;
         this.priority = priority;
         this.note = note;
         this.done = false;
+        this.user = user;
     }
 
     public Task() {
@@ -78,14 +80,41 @@ public class Task {
         this.done = done;
     }
 
-    public String getUkrainianFormattedDeadline() {
-        Locale ukrainianLocale = new Locale("uk");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM", ukrainianLocale);
-        return getDeadline().format(formatter);
+    public User getUser() {
+        return user;
     }
+    public void setUser(User user){
+        this.user = user;
+    }
+
+//    public String getUkrainianFormattedDeadline() {
+//        Locale ukrainianLocale = new Locale("uk");
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM", ukrainianLocale);
+//        return getDeadline().format(formatter);
+//    }
     public String getEnglishFormattedDeadline() {
         Locale englishLocale = new Locale("en");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMM", englishLocale);
         return getDeadline().format(formatter);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Task task = (Task) obj;
+        return Objects.equals(this.id, task.id);
     }
 }

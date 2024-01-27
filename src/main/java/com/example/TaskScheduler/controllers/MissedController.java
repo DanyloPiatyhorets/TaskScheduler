@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MissedController {
-    @Autowired
-    private TaskRepository taskRepository;
     @GetMapping("/missed")
     public String missed(Model model){
-        Iterable<Task> tasks = taskRepository.findAll();
+        Iterable<Task> tasks = MainController.getUser().getTasks();
         model.addAttribute("missedTasks", Tasks.missedTasks(tasks));
         model.addAttribute("activePage", "missed");
-        return "/missed";
+        model.addAttribute("userName", MainController.getUser().getName());
+        return "pages/missed";
     }
 }

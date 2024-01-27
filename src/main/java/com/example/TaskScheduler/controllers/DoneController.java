@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DoneController {
-    @Autowired
-    private TaskRepository taskRepository;
     @GetMapping("/done")
     public String done(Model model){
-        Iterable<Task> tasks = taskRepository.findAll();
+        Iterable<Task> tasks = MainController.getUser().getTasks();
         model.addAttribute("doneTasks", Tasks.doneTasks(tasks));
         model.addAttribute("activePage", "done");
-        return "/done";
+        model.addAttribute("userName", MainController.getUser().getName());
+        return "pages/done";
     }
 }

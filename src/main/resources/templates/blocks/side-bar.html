@@ -1,7 +1,7 @@
 <div th:fragment = "side-bar">
   <link rel="stylesheet" th:href="@{/styles/side-bar.css}">
   <div class="sidebar">
-    <span>User</span><br><br>
+    <span th:text="${userName}"></span><br><br>
     <ul>
       <li class="home" th:classappend="${activePage == 'home'} ? 'active'">
         <a th:href="@{/home}">

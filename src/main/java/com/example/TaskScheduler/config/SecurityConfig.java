@@ -28,13 +28,14 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/TaskScheduler", "/login", "/sign-up", "/logout").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/sign-up").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .anyRequest().authenticated()
+                                .requestMatchers("/TaskScheduler", "/log-in", "/sign-up", "/logout").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/sign-up").permitAll()
+//                                .requestMatchers(HttpMethod.POST, "/log-in").permitAll()
+                                .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/login")
+                        .loginPage("/log-in")
+                        .defaultSuccessUrl("/load")
                         .permitAll()
                 )
                 .logout((logout) -> logout

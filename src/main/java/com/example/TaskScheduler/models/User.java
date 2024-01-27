@@ -1,14 +1,14 @@
 package com.example.TaskScheduler.models;
 
+import com.example.TaskScheduler.controllers.MainController;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class User {
@@ -21,7 +21,7 @@ public class User {
     private String surname;
     private String password;
     private LocalDate dateOfBirth;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Task> tasks;
 
 //    code to be added if more roles are needed
@@ -53,6 +53,13 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.tasks = new HashSet<>();
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -101,5 +108,15 @@ public class User {
 
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", tasks=" + tasks +
+                '}';
     }
 }

@@ -1,4 +1,5 @@
 package com.example.TaskScheduler.controllers;
+import com.example.TaskScheduler.config.CustomUserDelailsService;
 import com.example.TaskScheduler.models.User;
 import com.example.TaskScheduler.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,22 +22,27 @@ public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    private final CustomUserDelailsService customUserDelailsService;
+
     @Autowired
     public AuthenticationController(AuthenticationManager authenticationManager,
                                     UserRepository userRepository,
-                                    PasswordEncoder passwordEncoder) {
+                                    PasswordEncoder passwordEncoder,
+                                    CustomUserDelailsService customUserDelailsService) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.customUserDelailsService = customUserDelailsService;
     }
 
     @GetMapping("/TaskScheduler")
     public String start(Model model) {
-        return "start";
+        return "authentication/start";
     }
     @GetMapping("/sign-up")
     public String getSignup(Model model) {
-        return "sign-up";
+        return "authentication/sign-up";
     }
     @PostMapping("/sign-up")
     public String signup(@RequestParam String username,
@@ -46,31 +53,33 @@ public class AuthenticationController {
                          Model model) {
         if(userRepository.existsByUsername(username)){
             model.addAttribute("exists", true);
-            return "sign-up";
+            return "authentication/sign-up";
         }
         User user = new User(username, name, surname,
                 passwordEncoder.encode(password), dateOfBirth);
         userRepository.save(user);
+//        TODO: think about automatic log in after signing up
 
-//        UsernamePasswordAuthenticationToken authRequest =
-//                new UsernamePasswordAuthenticationToken(username, password);
-//        Authentication authentication = authenticationManager.authenticate(authRequest);
+//        UserDetails userDetails = customUserDelailsService.loadUserByUsername(user.getUsername());
+//        Authentication authentication = new UsernamePasswordAuthenticationToken(
+//                userDetails, null, userDetails.getAuthorities());
 //        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        return "redirect:/home";
-//        I think this one should work when I add the right page to the login form chain
-        return login(username, password);
+
+        return "redirect:/log-in";
     }
-    @GetMapping("/login")
+    @GetMapping("/log-in")
     public String getLogin(Model model) {
-        return "login";
+        return "authentication/log-in";
     }
-    @PostMapping("/login")
-    public String login(@RequestParam String username,
-                        @RequestParam String password){
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "redirect:/home";
-    }
+
+//    @PostMapping("/log-in")
+//    public String login(@RequestParam String username,
+//                        @RequestParam String password,
+//                        RedirectAttributes redirectAttributes,
+//                        Model model){
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(username, password));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        return "redirect:/home";
+//    }
 }
