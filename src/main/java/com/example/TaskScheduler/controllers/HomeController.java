@@ -25,7 +25,6 @@ public class HomeController {
     public String home(Model model) {
         Iterable<Task> tasks = MainController.getUser().getTasks();
 //        System.out.println(MainController.getUser());
-
         model.addAttribute("todayTasks", Tasks.todayTasks(tasks));
         model.addAttribute("laterTasks", Tasks.laterTasks(tasks));
         model.addAttribute("activePage", "home");
@@ -46,14 +45,15 @@ public class HomeController {
                               Model model){
         Task task = new Task(name, deadline, priority, note, MainController.getUser());
         taskRepository.save(task);
-        return "redirect:/load";
+        MainController.getUser().addTask(task);
+        return "redirect:/home";
     }
     @GetMapping("/home/{id}")
     public String taskUpdate(@PathVariable(value = "id") long id,
                              Model model){
         Optional<Task> task = taskRepository.findById(id);
         if (task.isEmpty())
-            return "redirect:/load";
+            return "redirect:/home";
         model.addAttribute("task", task.get());
         return "actions/task-update";
     }
@@ -70,22 +70,26 @@ public class HomeController {
         task.setPriority(priority);
         task.setNote(note);
         taskRepository.save(task);
-        return "redirect:/load";
+        MainController.getUser().updateTask(task);
+        return "redirect:/home";
     }
     @PostMapping("home/{id}/delete")
     @Transactional
     public String taskPostDelete(@PathVariable(value = "id") long id,
                                  Model model){
         taskRepository.deleteTaskById(id);
-        return "redirect:/load";
+        MainController.getUser().deleteTaskById(id);
+        return "redirect:/home";
     }
     @PostMapping("home/{id}/complete")
+    @Transactional
     public String taskPostComplete(@PathVariable(value = "id") long id,
                                  Model model){
         Task task = taskRepository.findById(id).orElseThrow();
         task.setDone(true);
         taskRepository.save(task);
-        return "redirect:/load";
+        MainController.getUser().updateTask(task);
+        return "redirect:/home";
     }
 }
 

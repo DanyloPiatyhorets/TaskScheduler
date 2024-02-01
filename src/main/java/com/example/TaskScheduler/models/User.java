@@ -54,6 +54,30 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.tasks = new HashSet<>();
     }
+    public void addTask(Task task){
+        this.tasks.add(task);
+    }
+    public void updateTask(Task updatedTask){
+        for (Task existingTask : tasks) {
+            if (existingTask.getId().equals(updatedTask.getId())) {
+                existingTask.setName(updatedTask.getName());
+                existingTask.setDeadline(updatedTask.getDeadline());
+                existingTask.setPriority(updatedTask.getPriority());
+                existingTask.setNote(updatedTask.getNote());
+                existingTask.setDone(updatedTask.isDone());
+                break;
+            }
+        }
+    }
+    public void deleteTaskById(Long id){
+        Task taskToDelete = tasks.stream()
+                .filter(task -> id.equals(task.getId()))
+                .findFirst()
+                .orElse(null);
+        if(taskToDelete != null){
+            tasks.remove(taskToDelete);
+        }
+    }
     public Long getId() {
         return id;
     }
