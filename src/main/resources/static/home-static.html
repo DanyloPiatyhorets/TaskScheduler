@@ -1,0 +1,113 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/home.css">
+    <script src="scripts/activePage.js"></script>
+</head>
+<body>
+<div class="grid-container">
+
+    <div><div>
+        <link rel="stylesheet" href="styles/side-bar.css">
+        <div class="sidebar">
+            <span>Danylo</span><br><br>
+            <ul>
+                <li class="home active">
+                    <a href="/home">
+                        Home
+                    </a>
+                </li>
+                <li class="my-day">
+                    <a href="/my-day">
+                        My day
+                    </a>
+                </li>
+                <li class="done">
+                    <a href="/done">
+                        Done
+                    </a>
+                </li>
+                <li class="missed">
+                    <a href="/missed">
+                        Missed
+                    </a>
+                </li>
+                <li class="add">
+                    <a href="/home/add">
+                        Add
+                    </a>
+                </li>
+            </ul>
+            <form action="/logout" method="post">
+                <input type="submit" value="Sign Out">
+            </form>
+        </div>
+    </div></div>
+    <div class="tasks-container">
+
+        <div>
+            <h2>Today I should:</h2>
+            <div>
+                <a href="/home/1653">
+                    <div class="task-block">
+                        <h3 class="task-name">Danylo</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/home/1702">
+                    <div class="task-block">
+                        <h3 class="task-name">My task</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/home/1802">
+                    <div class="task-block">
+                        <h3 class="task-name">Play voleyball</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/home/1805">
+                    <div class="task-block">
+                        <h3 class="task-name">Send emails</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/home/1806">
+                    <div class="task-block">
+                        <h3 class="task-name">Frontend for TaskScheduler</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="/home/1807">
+                    <div class="task-block">
+                        <h3 class="task-name">Have a dinner</h3>
+                        <p class="task-deadline">Deadline: Saturday, 3 Feb</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2>Later</h2>
+            <div>
+                <a href="/home/1803">
+                    <div class="task-block">
+                        <h3 class="task-name">Go swimming</h3>
+                        <p class="task-deadline">Deadline: Sunday, 4 Feb</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
