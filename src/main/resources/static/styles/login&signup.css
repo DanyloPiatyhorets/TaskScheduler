@@ -136,6 +136,7 @@ body{
     color: #333;
 }
 .forms .form-content .text a{
+    font-size: 17px;
     color: var(--first-color);
     text-decoration: none;
 

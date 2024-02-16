@@ -38,6 +38,8 @@ public class AuthenticationController {
 
     @GetMapping("/TaskScheduler")
     public String start(Model model) {
+//        TODO: here you can try to check whether context holder is not empty.
+//         If not - redirect it to home or whatever
         return "authentication/start";
     }
     @GetMapping("/sign-up")
