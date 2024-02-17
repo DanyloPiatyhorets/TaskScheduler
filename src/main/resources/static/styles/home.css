@@ -1,49 +1,65 @@
-:root{
-    --first-color:#287dd2;
-    --second-color: #54c2d3;
-    --third-color: #7dc7d5;
-    --fourth-color: #bbe4e9;
-    --fifth-color: #e1f3f6;
-    --sixth-color: #f5f8f9;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import "variables.css";
+/**{*/
+/*    font-size: 20px;*/
+/*}*/
 html{
     background-color: var(--sixth-color);
-    font-size: 24px;
+    font-size: 10px;
+    font-family: "Poppins" , sans-serif;
+
 }
 .grid-container {
     display: grid;
     grid-template-columns: 9rem 1fr;
-    grid-gap: 100px;
+    grid-gap: 130px;
 }
 
 .tasks-container {
     grid-column: 2;
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 40px;
     grid-template-columns: 1fr;
+}
+span {
+    /*font-weight: bold;*/
+    font-size: 3.5rem;
+    /*color: var(--grey);*/
 }
 .tasks-container a {
     text-decoration: none; /* Вимкнути підсвічування */
-    color: black; /* Задати колір тексту */
+    /*color: black; !* Задати колір тексту *!*/
+    color: var(--grey);
+
 }
 
 .tasks-container h2 {
+    display: inline-block;
+    font-weight: normal;
     margin-top: 1rem;
     margin-bottom: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    background-color: var(--first-color);
+    color: rgb(227, 227, 227);
+
+
 }
 .tasks-container h3 {
     margin: 0.5rem;
     margin-bottom: 0.3rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
+    color: var(--grey);
+
 }
 .tasks-container p {
     margin-top: 0.3rem;
     margin-left: 1rem;
-
     font-size: 0.8rem;
+    color: var(--grey);
+
 }
 
 .task-name{
@@ -57,7 +73,8 @@ html{
     width: 18rem;
     background-color: var(--fifth-color);
     border-radius: 0.4rem;
-    margin-right: 0;
+    /*margin-right: 35px;*/
+    margin-left: 25px;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease;
 }

@@ -1,10 +1,5 @@
-:root{
-    --first-color:#287dd2;
-    --second-color: #53a8b6;
-    --third-color: #79c2d0;
-    --fourth-color: #bbe4e9;
-    --fifth-color: #e3f2f5;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import "variables.css";
 html{
     background-color: var(--fifth-color);
     font-size: 24px;
@@ -15,17 +10,33 @@ span{
     padding-bottom: 0.875rem;
     padding-left: 0.6rem;
 }
+.strip{
+    border-top: 2px solid var(--zero-color);
+    margin-bottom: 30px;
+    margin-top: 0.5rem;
+    margin-left: -0.7rem;
+    margin-right: -1rem;
+}
 
+i {
+    /*color: rgb(227, 227, 227);*/
+    color: var(--grey);
+    margin-right: 5px;
+}
+i.active{
+    color: rgb(227, 227, 227);
+    margin-right: 5px;
+}
 .sidebar {
     background-color: var(--fourth-color);
-    width: 9rem;
+    /*here I need a js function that will change the width if the name is too long*/
+    width: 11rem;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     padding: 1rem;
     padding-left: 0.7rem;
-    padding-right: 1rem;
 }
 
 .sidebar ul {
@@ -52,7 +63,7 @@ span{
 
 .sidebar ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--grey);
     transition: color 0.3s ease
 }
 .sidebar ul li.active a {
@@ -65,4 +76,25 @@ span{
 }
 .sidebar ul li.active a:hover {
     color: rgb(227, 227, 227);
+}
+
+form {
+    display: inline; /* Display the form inline */
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    padding-left: 0.6rem;
+}
+
+form input[type="submit"] {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 1.25rem; /* Use the default font size */
+    font-family: inherit; /* Use the default font family */
+    color: inherit; /* Use the default text color */
+    cursor: pointer; /* Show cursor as pointer on hover */
+    text-decoration: none; /* Add underline effect to mimic text */
+    transition: color 0.3s ease
+}
+form input[type="submit"]:hover{
+    color: var(--first-color);
 }
