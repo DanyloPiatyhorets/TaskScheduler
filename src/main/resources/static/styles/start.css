@@ -63,12 +63,15 @@ body{
     text-align: center;
     margin-bottom: 55px;
     font-size: 55px;
+    color: var(--zero-color);
 }
 .container .content p{
     text-align: center;
     font-style: italic;
     margin-bottom: 115px;
     font-size: 25px;
+    color: var(--zero-color);
+
 }
 .container .content .buttons{
     position: relative;

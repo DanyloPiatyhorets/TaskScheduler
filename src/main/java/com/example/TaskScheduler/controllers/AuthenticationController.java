@@ -4,10 +4,6 @@ import com.example.TaskScheduler.models.User;
 import com.example.TaskScheduler.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,26 +58,28 @@ public class AuthenticationController {
         userRepository.save(user);
 //        TODO: think about automatic log in after signing up
 
-//        UserDetails userDetails = customUserDelailsService.loadUserByUsername(user.getUsername());
-//        Authentication authentication = new UsernamePasswordAuthenticationToken(
-//                userDetails, null, userDetails.getAuthorities());
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        return "redirect:/log-in";
+        return "redirect:authentication/log-in";
     }
     @GetMapping("/log-in")
     public String getLogin(Model model) {
         return "authentication/log-in";
     }
 
-//    @PostMapping("/log-in")
-//    public String login(@RequestParam String username,
-//                        @RequestParam String password,
-//                        RedirectAttributes redirectAttributes,
-//                        Model model){
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(username, password));
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        return "redirect:/home";
+//    @PostMapping("/login")
+//    public void login(@RequestBody LoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) {
+//        UsernamePasswordAuthenticationToken token = UsernamePasswordAuthenticationToken.unauthenticated(
+//                loginRequest.getUsername(), loginRequest.getPassword());
+//        Authentication authentication = authenticationManager.authenticate(token);
+//        SecurityContext context = securityContextHolderStrategy.createEmptyContext();
+//        context.setAuthentication(authentication);
+//        securityContextHolderStrategy.setContext(context);
+//        securityContextRepository.saveContext(context, request, response);
 //    }
+//class LoginRequest {
+//
+//    private String username;
+//    private String password;
+//
+//    // getters and setters
+//}
 }

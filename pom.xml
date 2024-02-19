@@ -7,12 +7,13 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
+
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>TaskScheduler</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>something</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Task Scheduler</name>
+	<description>Full-stack web application</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -78,6 +79,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
 	</build>
 
 </project>
