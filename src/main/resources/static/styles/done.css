@@ -1,38 +1,6 @@
-:root{
-    --first-color:#287dd2;
-    --second-color: #54c2d3;
-    --third-color: #7dc7d5;
-    --fourth-color: #bbe4e9;
-    --fifth-color: #e1f3f6;
-    --sixth-color: #f5f8f9;
-}
-html{
-    background-color: var(--sixth-color);
-    font-size: 24px;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: 9rem 1fr;
-    grid-gap: 100px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import "variables.css";
 
-.tasks-container {
-    grid-column: 2;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr;
-}
-.tasks-container a {
-    text-decoration: none; /* Вимкнути підсвічування */
-    color: black; /* Задати колір тексту */
-}
-
-.tasks-container h2 {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
 .tasks-container h3 {
     margin: 0.5rem;
     margin-bottom: 0.3rem;
@@ -43,22 +11,18 @@ html{
 .tasks-container p {
     margin-top: 0.3rem;
     margin-left: 1rem;
-    color: var(--missed-border-color);
+    /*color: var(--missed-border-color);*/
     font-size: 0.8rem;
+    text-decoration: line-through;
 }
 
-.task-name{
-    margin: 0.3rem;
-}
-.task-deadline{
-    margin: 0.3rem;
-}
 .task-block{
-    border: var(--first-color) solid 0.01px;
+    border: var(--first-color) solid 1px;
     width: 18rem;
     background-color: var(--fifth-color);
     border-radius: 0.4rem;
     margin-right: 0;
+    margin-left: 25px;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease;
 }
