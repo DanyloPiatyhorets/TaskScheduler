@@ -88,7 +88,7 @@ body{
 }
 .forms .form-content .title{
     position: relative;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 500;
     color: #333;
 }
@@ -121,7 +121,7 @@ body{
     outline: none;
     border: none;
     padding: 0 30px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     border-bottom: 2px solid rgba(0,0,0,0.2);
     transition: all 0.3s ease;
@@ -136,12 +136,12 @@ body{
     font-size: 17px;
 }
 .forms .form-content .text{
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     color: #333;
 }
 .forms .form-content .text a{
-    font-size: 17px;
+    font-size: 20px;
     color: var(--first-color);
     text-decoration: none;
 

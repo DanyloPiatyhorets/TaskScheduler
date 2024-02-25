@@ -5,7 +5,7 @@
 /*}*/
 
 .task-block{
-    border: var(--first-color) solid 0.01px;
+    border: var(--first-color) solid 1px;
     width: 18rem;
     background-color: var(--fifth-color);
     border-radius: 0.4rem;

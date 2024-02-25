@@ -1,11 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import "variables.css";
 :root{
-    --first-color:#287dd2;
-    --second-color: #54c2d3;
-    --third-color: #7dc7d5;
-    --fourth-color: #bbe4e9;
-    --fifth-color: #e1f3f6;
-    --sixth-color: #f5f8f9;
-
     --missed-border-color: #e70000;
     --missed-main-background-color: #e16363;
     --missed-hover-background-color: #e75c5c;
@@ -25,7 +20,7 @@
 }
 
 .first-task-block{
-    border: var(--pr-1-border-color) solid 0.01px;
+    border: var(--pr-1-border-color) solid 1px;
     width: 18rem;
     background-color: var(--pr-1-main-background-color);
     border-radius: 0.4rem;
@@ -39,7 +34,7 @@
 }
 
 .second-task-block{
-    border: var(--pr-2-border-color) solid 0.01px;
+    border: var(--pr-2-border-color) solid 1px;
     width: 18rem;
     background-color: var(--pr-2-main-background-color);
     border-radius: 0.4rem;
@@ -53,7 +48,7 @@
 }
 
 .third-task-block{
-    border: var(--pr-3-border-color) solid 0.01px;
+    border: var(--pr-3-border-color) solid 1px;
     width: 18rem;
     background-color: var(--pr-3-main-background-color);
     border-radius: 0.4rem;

@@ -19,15 +19,9 @@ span{
 }
 
 i {
-    /*color: rgb(227, 227, 227);*/
     color: var(--grey);
     font-size: 1.4rem;
     padding-left: 0.6rem;
-}
-/*TODO: check whether you can make it*/
-i.active{
-    color: rgb(227, 227, 227);
-    margin-right: 5px;
 }
 
 .sidebar {
@@ -68,7 +62,7 @@ i.active{
     color: var(--grey);
     transition: color 0.3s ease
 }
-.sidebar ul li.active a {
+.sidebar ul li.active * {
     text-decoration: none;
     color: rgb(227, 227, 227);
 }

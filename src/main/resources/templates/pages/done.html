@@ -2,8 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Done</title>
+        <title> Done </title>
         <link rel="stylesheet" th:href="@{/styles/done.css}">
+        <link rel="stylesheet" th:href="@{/styles/common-for-pages.css}">
+        <script src="https://kit.fontawesome.com/018f2343ea.js" crossorigin="anonymous"></script>
         <script th:src="@{/scripts/activePage.js}"></script>
     </head>
     <body>
@@ -11,11 +13,11 @@
         <div th:insert="~{blocks/side-bar :: side-bar}"></div>
 
         <div class="tasks-container">
-            <div th:if="${#lists.isEmpty(doneTasks)}">
+            <div th:if="${#lists.isEmpty(doneTasks)}" class="no-tasks">
                 <h2>There are no completed tasks yet</h2>
             </div>
             <div th:if="${!#lists.isEmpty(doneTasks)}">
-                <h2>Completed tasks</h2>
+                <h2>Completed tasks:</h2>
                 <div th:each="task : ${doneTasks}">
                     <a th:href="'/home/' + ${task.getId()}">
                         <div class="task-block">
