@@ -2,7 +2,8 @@
   <link rel="stylesheet" th:href="@{/styles/side-bar.css}">
   <div class="sidebar">
     <i class="fa-solid fa-user"></i>
-    <span th:text="${userName}"></span><br>
+    <span th:text="${userName}">
+    </span><br>
     <div class="strip"></div>
     <ul>
       <li class="home" th:classappend="${activePage == 'home'} ? 'active'">
@@ -14,7 +15,7 @@
       <li class="my-day" th:classappend="${activePage == 'my-day'} ? 'active'">
         <i class="fa-solid fa-sun"></i>
         <a th:href="@{/my-day}">
-          My day
+          My Day
         </a>
       </li>
       <li class="done" th:classappend="${activePage == 'done'} ? 'active'">

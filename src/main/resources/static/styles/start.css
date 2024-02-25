@@ -58,19 +58,29 @@ body{
     position: relative;
     z-index: 3;
 }
-
-.container .content h1{
+.container .content .text-1, .text-2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.container .content h1, p {
+    display: inline;
     text-align: center;
-    margin-bottom: 55px;
-    font-size: 55px;
-    color: var(--zero-color);
+    /*color: var(--zero-color);*/
+    color: #fff;
+    background: var(--first-color);
+    border-radius: 6px;
+}
+.container .content h1{
+    font-size: 50px;
+    padding: 10px 50px;
+    margin-bottom: 40px;
 }
 .container .content p{
-    text-align: center;
     font-style: italic;
-    margin-bottom: 115px;
     font-size: 25px;
-    color: var(--zero-color);
+    padding: 10px 30px;
+    margin-bottom: 150px;
 
 }
 .container .content .buttons{
@@ -78,7 +88,7 @@ body{
     display: flex;
     justify-content: space-around;
     padding: 0 180px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 .container .content .buttons a{
     font-size: 22px;

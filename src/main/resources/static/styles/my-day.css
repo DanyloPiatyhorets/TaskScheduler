@@ -23,52 +23,6 @@
     --pr-3-main-background-color: #a0f1cd;
     --pr-3-hover-background-color: #7ab99d;
 }
-html{
-    background-color: var(--sixth-color);
-    font-size: 24px;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: 9rem 1fr;
-    grid-gap: 100px;
-}
-
-.tasks-container {
-    grid-column: 2;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr;
-}
-.tasks-container a {
-    text-decoration: none;
-    color: black;
-}
-
-.tasks-container h2 {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-.tasks-container h3 {
-    margin: 0.5rem;
-    margin-bottom: 0.3rem;
-    font-size: 1rem;
-    font-weight: bold;
-}
-.tasks-container p {
-    margin-top: 0.3rem;
-    margin-left: 1rem;
-
-    font-size: 0.8rem;
-}
-
-.task-name{
-    margin: 0.3rem;
-}
-.task-deadline{
-    margin: 0.3rem;
-}
 
 .first-task-block{
     border: var(--pr-1-border-color) solid 0.01px;
@@ -78,6 +32,7 @@ html{
     margin-right: 0;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease;
+    margin-left: 25px;
 }
 .first-task-block:hover{
     background-color: var(--pr-1-hover-background-color);
@@ -91,6 +46,7 @@ html{
     margin-right: 0;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease;
+    margin-left: 25px;
 }
 .second-task-block:hover{
     background-color: var(--pr-2-hover-background-color);
@@ -104,6 +60,7 @@ html{
     margin-right: 0;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease;
+    margin-left: 25px;
 }
 .third-task-block:hover{
     background-color: var(--pr-3-hover-background-color);

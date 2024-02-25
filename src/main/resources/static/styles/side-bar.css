@@ -21,7 +21,8 @@ span{
 i {
     /*color: rgb(227, 227, 227);*/
     color: var(--grey);
-    margin-right: 5px;
+    font-size: 1.4rem;
+    padding-left: 0.6rem;
 }
 /*TODO: check whether you can make it*/
 i.active{
