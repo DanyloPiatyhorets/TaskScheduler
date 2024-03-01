@@ -90,7 +90,7 @@ body{
     position: relative;
     font-size: 26px;
     font-weight: 500;
-    color: #333;
+    color: var(--grey);
 }
 .forms .form-content .title:before{
     content: '';
