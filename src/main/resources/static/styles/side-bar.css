@@ -20,7 +20,7 @@ span{
 
 i {
     color: var(--grey);
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     padding-left: 0.6rem;
 }
 
@@ -42,14 +42,14 @@ i {
 }
 
 .sidebar ul li {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
     padding-left: 0.6rem;
     border-radius: 0.4rem;
 }
 .sidebar ul li.active {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     padding-left: 0.6rem;
@@ -84,7 +84,7 @@ form {
 form input[type="submit"] {
     background: none;
     border: none;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-family: inherit;
     color: inherit;
     cursor: pointer;
