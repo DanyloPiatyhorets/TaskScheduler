@@ -4,6 +4,8 @@ import com.example.TaskScheduler.models.User;
 import com.example.TaskScheduler.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +36,10 @@ public class AuthenticationController {
 
     @GetMapping("/TaskScheduler")
     public String start(Model model) {
-//        TODO: here you can try to check whether context holder is not empty.
-//         If not - redirect it to home or whatever
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(!authentication.getName().equals("anonymousUser")){
+            return "redirect:/load";
+        }
         return "authentication/start";
     }
     @GetMapping("/sign-up")
@@ -58,7 +62,7 @@ public class AuthenticationController {
         userRepository.save(user);
 //        TODO: think about automatic log in after signing up
 
-        return "redirect:authentication/log-in";
+        return "redirect:/log-in";
     }
     @GetMapping("/log-in")
     public String getLogin(Model model) {

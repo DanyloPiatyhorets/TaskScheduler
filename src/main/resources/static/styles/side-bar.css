@@ -22,6 +22,10 @@ i {
     color: var(--grey);
     font-size: 1.25rem;
     padding-left: 0.6rem;
+    transition: color 0.3s ease
+}
+i:hover{
+    color: var(--first-color);
 }
 
 .sidebar {
