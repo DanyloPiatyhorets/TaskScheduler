@@ -1,5 +1,7 @@
 # Task Scheduler Application 
 > Version 2.0 (released 28/03/24)
+
+![Cover Image](src/main/resources/static/images/front-image.png)
 ## Intro
 In a world filled with ever-increasing demands and responsibilities, 
 staying organised is paramount <br> 
