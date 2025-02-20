@@ -33,7 +33,6 @@ public class SecurityConfig {
                                 .requestMatchers("/TaskScheduler", "/log-in", "/sign-up", "/logout").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/sign-up").permitAll()
                                 .requestMatchers("/images/**", "/styles/**").permitAll()
-//                                .requestMatchers(HttpMethod.POST, "/log-in").permitAll()
                                 .anyRequest().authenticated()
 
                 )

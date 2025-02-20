@@ -68,22 +68,4 @@ public class AuthenticationController {
     public String getLogin(Model model) {
         return "authentication/log-in";
     }
-
-//    @PostMapping("/login")
-//    public void login(@RequestBody LoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) {
-//        UsernamePasswordAuthenticationToken token = UsernamePasswordAuthenticationToken.unauthenticated(
-//                loginRequest.getUsername(), loginRequest.getPassword());
-//        Authentication authentication = authenticationManager.authenticate(token);
-//        SecurityContext context = securityContextHolderStrategy.createEmptyContext();
-//        context.setAuthentication(authentication);
-//        securityContextHolderStrategy.setContext(context);
-//        securityContextRepository.saveContext(context, request, response);
-//    }
-//class LoginRequest {
-//
-//    private String username;
-//    private String password;
-//
-//    // getters and setters
-//}
 }

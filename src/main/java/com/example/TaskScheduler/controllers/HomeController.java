@@ -22,12 +22,6 @@ public class HomeController {
     private TaskRepository taskRepository;
 
     @GetMapping("/home")
-//    TODO: catch and fix NullPointerException here
-
-//    TODO: Fix the problem of 'quick logins': for some reasons it
-//     doesn't switch to different accounts and the link is '?=continue'
-
-//    TODO: from different browsers it gets synchronised, which seems to be a problem
         public String home (Model model){
         Iterable<Task> tasks;
         try {
@@ -35,7 +29,6 @@ public class HomeController {
         } catch (NullPointerException e){
             return "redirect:/log-in";
         }
-//        System.out.println(MainController.getUser());
         model.addAttribute("todayTasks", Tasks.todayTasks(tasks));
         model.addAttribute("laterTasks", Tasks.laterTasks(tasks));
         model.addAttribute("activePage", "home");

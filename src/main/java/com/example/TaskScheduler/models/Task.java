@@ -14,7 +14,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 //    @ForeignKey
-//    I can manage the relation between the task and the user entity either strictly via database
+//    I can manage the relation between the task and the user entity
+//    either strictly via database
 //    or strictly via spring
     private String name;
     private LocalDate deadline;
@@ -87,11 +88,6 @@ public class Task {
         this.user = user;
     }
 
-//    public String getUkrainianFormattedDeadline() {
-//        Locale ukrainianLocale = new Locale("uk");
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM", ukrainianLocale);
-//        return getDeadline().format(formatter);
-//    }
     public String getEnglishFormattedDeadline() {
         Locale englishLocale = new Locale("en");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMM", englishLocale);
